@@ -1,0 +1,149 @@
+void main() {
+ printEvenWithRange(5,20);
+  List<int> list = [6,8,10,12];
+ print(containOddNumberInList(list));
+  printDifferentStrings("""The wren
+  Earns his living.
+  Noiselessly""");
+  
+  printDifferentString("""The wren
+  Earns his living.
+  Noiselessly""");
+  
+  new User.admin(1, 'Dina','female','dina.adel@gmail.com','student');
+
+  Category category = new Category(1, '???? ????', 'computer science','2020-12-24T19:33:31.990Z','2020-12-24T19:33:31.990Z');
+
+  User user = new User(2, 'Dina','female','dina.adel@gmail.com','student');
+
+  Course course = new Course(1, 'Level 5','English', category, user);
+
+  print(user.toString());
+  print(category.toString());
+  print(course.toString());
+
+
+}
+
+void printEvenWithRange(int start,int end){
+for(int i=start;i<= end;i++){
+if((i%2)==0){
+
+print(i);
+  }
+}
+} 
+
+bool containOddNumberInList(List<int> listOfNumbers){
+
+  bool res = false;
+  for(int i =0; i< listOfNumbers.length;i++){
+     if((listOfNumbers[i]%2)!=0)
+     {
+         res = true;
+     }
+  }
+  return res;
+}
+
+void printDifferentStrings(String s){
+
+  print(s.split("\n")[0].toString());
+  print(s.split("\n")[1].toUpperCase());
+  print(s.split("\n")[2].toLowerCase());
+  
+}
+
+void printDifferentString(String s){
+ List<String> strings = s.split("\n");
+  print(strings[0].toString());
+  print(strings[1].toUpperCase());
+  print(strings[2].toLowerCase());
+}
+
+
+
+
+class Course
+{
+  int id;
+  String status;
+  String level;
+  String language;
+  double numberOfHours;
+  int numberOfEnrolledStudents;
+  Category category;
+  String description;
+  List<String> objectives;
+  List<String> requirements;
+  List<String> include;
+  String nameAr;
+  String nameEn;
+  String photo;
+  User teacher;
+  int price;
+  int rating;
+  bool hasOfferNow;
+  String discountStartedAt;
+  String discountFinishedAt;
+  bool visibility;
+  int passing_percentage;
+  String createdAt;
+  String updatedAt;
+
+  Course(this.id, this.level,this.language, this.category, this.teacher) {
+    print(
+        'ID:${this.id}, level:${this.level},Language:${this.language}, Category { ${category.toString()}, User { ${teacher.toString()} }');
+  }
+
+  @override
+  String toString() {
+    return 'ID:${this.id}, level:${this.level},Language:${this.language}, Category { ${category.toString()}, User { ${teacher.toString()} }';
+  }
+}
+
+class User {
+  int id;
+  bool isLogged;
+  String username;
+  String gender;
+  bool canComment;
+  String photo;
+  String email;
+  int level;
+  String semester;
+  String country;
+  bool enabled;
+  List<String> pushTokens;
+  String role;
+  String createdAt;
+  String updatedAt;
+
+  User(this.id, this.username,this.gender, this.email,this.role) {}
+
+  User.admin(this.id, this.username,this.gender, this.email,this.role) {
+    print('ID: ${id}, Username: ${username},Gender:${gender} ,Email: ${email}, Role:${role}');
+  }
+
+  @override
+  String toString() {
+    return 'ID: ${this.id}, Username: ${this.username}, Email: ${this.email},Gender:${this.gender},Role:${this.role}';
+  }
+}
+
+class Category{
+  int id;
+  String nameAr;
+  String nameEn;
+  String photo;
+  String createdAt;
+  String updatedAt;
+
+  Category(this.id, this.nameAr, this.nameEn,this.createdAt,this.updatedAt) {
+    print('ID: ${id}, NameAr: ${nameAr}, NameEn: ${nameEn}, CreatedAt: ${createdAt},UpdatedAt: ${updatedAt}');
+  }
+  @override
+  String toString() {
+    return 'ID:${this.id}, ArName:${this.nameAr}, EnName:${this.nameEn},CreatedAt:${this.createdAt},UpdatedAt:${this.updatedAt}';
+  }
+}
